@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import Winner from './winner';
 import Vote from './vote';
+import * as actionCreators from '../action-creators';
 
 class Voting extends React.PureComponent {
   constructor(props) {
@@ -17,11 +18,12 @@ class Voting extends React.PureComponent {
   }
 };
 
-const VotingContainer = connect(mapStateToProps)(Voting);
+const VotingContainer = connect(mapStateToProps, actionCreators)(Voting);
 
 function mapStateToProps(state) {
   return {
     pair: state.getIn(['vote', 'pair']),
+    hasVoted: state.get('hasVoted'),
     winner: state.get('winner')
   };
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import Winner from './winner';
+import * as actionCreators from '../action-creators';
 
 class Results extends React.PureComponent {
   constructor(props) {
@@ -24,7 +25,7 @@ class Results extends React.PureComponent {
           {this.getPair().map(entry =>
             <div key={entry} className="entry">
               <h1>{entry}</h1>
-              <div class="voteCount">
+              <div className="voteCount">
                 {this.getVotes(entry)}
               </div>
             </div>
@@ -41,7 +42,7 @@ class Results extends React.PureComponent {
   }
 };
 
-const ResultsContainer = connect(mapStateToProps)(Results)
+const ResultsContainer = connect(mapStateToProps, actionCreators)(Results)
 
 function mapStateToProps(state) {
   return {
