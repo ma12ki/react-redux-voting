@@ -8,7 +8,7 @@ import {
 import {List} from 'immutable';
 import {expect} from 'chai';
 
-import Voting from '../../src/components/voting';
+import {Voting} from '../../src/components/voting';
 
 describe('Voting', () => {
 
